@@ -55,8 +55,8 @@ Then all the client requests will go to the mock server (assuming it's running o
 <!-- prettier-ignore -->
 | Branch    | Tests | Code Coverage | Comments                  |
 | --------- | ----- | ------------- | ------------------------- |
-| `develop` |       |               | Work in progress          |
-| `master`  |       |               | Latest Production Release |
+| `develop` | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/develop) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | Work in progress          |
+| `master`  | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/master) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | Latest Production Release |
 
 ## Configuration
 
