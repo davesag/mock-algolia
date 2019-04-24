@@ -39,8 +39,8 @@ To fool the `algoliasearch` client into talking to this mock server, do this ins
 ```js
 const client = algoliasearch(applicationId, apiKey, { protocol: 'http:' })
 client.hosts = {
-  read: ['http://localhost:3001'],
-  write: ['http://localhost:3001']
+  read: ['http://localhost:3000'],
+  write: ['http://localhost:3000']
 }
 
 const index = client.initIndex('some-index-name')
@@ -48,7 +48,7 @@ const index = client.initIndex('some-index-name')
 await index.addObjects(arrayOfObjects)
 ```
 
-Then all the client requests will go to the mock server (assuming it's running on port 3001)
+Then all the client requests will go to the mock server (assuming it's running on port 3000)
 
 ## Branches
 
@@ -82,7 +82,7 @@ npm install
 npm start
 ```
 
-Go to [localhost:3001/docs](http://127.0.0.1:3001/docs) to see the docs.
+Go to [localhost:3000/docs](http://127.0.0.1:3000/docs) to see the docs.
 
 ### `.env` file
 
