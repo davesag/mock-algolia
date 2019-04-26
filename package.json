@@ -15,10 +15,9 @@
     "start": "NODE_PATH=. node index.js",
     "test": "npm run test:unit",
     "test:all": "npm run test:unit; npm run test:server",
-    "test:unit": "NODE_ENV=test NODE_PATH=. mocha --require ./test/unit/testHelper.js --spec ./test/unit/**/*.test.js",
-    "test:unit:cov": "find ./test/unit -name '*.test.js' | NODE_ENV=test NODE_PATH=. xargs nyc mocha --require ./test/unit/testHelper.js",
-    "test:unit:cov-x": "NODE_ENV=test NODE_PATH=. nyc mocha --require ./test/unit/testHelper.js --spec ./test/unit/**/*.test.js",
-    "test:server": "NODE_ENV=test NODE_PATH=. mocha --require ./test/server/testHelper.js --spec ./test/server/**/*.test.js --file ./test/server/testInit.js",
+    "test:unit": "NODE_ENV=test NODE_PATH=. mocha ./test/unit/ --require ./test/unit/testHelper.js --recursive --extension .test.js",
+    "test:unit:cov": "NODE_ENV=test NODE_PATH=. nyc mocha ./test/unit/ --require ./test/unit/testHelper.js --recursive --extension .test.js",
+    "test:server": "NODE_ENV=test NODE_PATH=. mocha ./test/server/ --require ./test/server/testHelper.js --file ./test/server/testInit.js --extension .test.js --recursive ",
     "test:mutants": "NODE_ENV=test NODE_PATH=. npx stryker run"
   },
   "keywords": [
