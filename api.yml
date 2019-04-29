@@ -96,6 +96,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BulkOperationResponse'
+  /indexes/{name}/settings:
+    put:
+      tags:
+        - indices
+      summary: Update the settings for the named index.
+      operationId: v1_indices_updateSettings
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+        - name: forwardToReplicas
+          in: query
+          description: Should this request be forwared on to replicas?
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlgoliaSettings'
+      responses:
+        200:
+          description: 'Gives the objectID that was updated'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlgoliaResponse'
   /indexes/{name}/{objectID}:
     put:
       tags:
@@ -152,6 +183,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AlgoliaResponse'
+  /indexes/{name}/task/{taskID}:
+    get:
+      tags:
+        - indices
+      summary: Wait for the task with the given ID to finish.
+      operationId: v1_indices_waitTask
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+        - name: taskID
+          in: path
+          description: The ID of the task to wait for
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'Responds with either status: published or notPublished'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaitResponse'
   /indexes/{name}/{objectID}/partial:
     post:
       tags:
@@ -220,6 +277,69 @@ components:
         objectID:
           type: string
       additionalProperties: true
+    AlgoliaSettings:
+      type: object
+      properties:
+        minWordSizefor1Typo:
+          type: number
+        minWordSizefor2Typos:
+          type: number
+        hitsPerPage:
+          type: number
+        attributesToRetrieve:
+          type: array
+          items:
+            type: string
+        attributesToHighlight:
+          type: array
+          items:
+            type: string
+        attributesToSnippet:
+          type: array
+          items:
+            type: string
+        attributesToIndex:
+          type: array
+          items:
+            type: string
+        attributesForFaceting:
+          type: array
+          items:
+            type: string
+        attributeForDistinct:
+          type: array
+          items:
+            type: string
+        ranking:
+          type: array
+          items:
+            type: string
+            enum:
+              - typo
+              - geo
+              - proximity
+              - attribute
+              - exact
+              - custom
+        customRanking:
+          type: array
+          items:
+            type: string
+        searchableAttributes:
+          type: array
+          items:
+            type: string
+        queryType:
+          type: string
+          enum:
+            - prefixAll
+            - prefixLast
+            - prefixNone
+        highlightPreTag:
+          type: string
+        highlightPostTag:
+          type: string
+      additionalProperties: true
     AlgoliaRequest:
       type: object
       properties:
@@ -257,3 +377,11 @@ components:
             type: string
         taskID:
           type: number
+    WaitResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - published
+            - notPublished
