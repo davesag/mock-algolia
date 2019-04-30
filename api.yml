@@ -339,6 +339,82 @@ components:
           type: string
         highlightPostTag:
           type: string
+        keepDiacriticsOnCharacters:
+          type: string
+        queryLanguages:
+          # see https://www.algolia.com/doc/api-reference/api-parameters/queryLanguages/
+          type: array
+          items:
+            type: string
+            enum:
+              - af
+              - ar
+              - az
+              - bg
+              - bn
+              - ca
+              - cs
+              - cy
+              - da
+              - de
+              - el
+              - en
+              - eo
+              - es
+              - et
+              - eu
+              - fa
+              - fi
+              - fo
+              - fr
+              - ga
+              - gl
+              - he
+              - hi
+              - hu
+              - hy
+              - id
+              - is
+              - it
+              - ja
+              - ka
+              - kk
+              - ko
+              - ku
+              - ky
+              - lt
+              - lv
+              - mi
+              - mn
+              - mr
+              - ms
+              - mt
+              - nb
+              - nl
+              - no
+              - ns
+              - pl
+              - ps
+              - pt
+              - 'bt-br'
+              - qu
+              - ro
+              - ru
+              - sk
+              - sq
+              - sv
+              - sw
+              - ta
+              - te
+              - th
+              - tl
+              - tn
+              - tr
+              - tt
+              - uk
+              - ur
+              - uz
+              - zh
       additionalProperties: true
     AlgoliaRequest:
       type: object
