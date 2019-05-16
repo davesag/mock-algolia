@@ -58,7 +58,7 @@ describe('src/utils/genericErrors', () => {
       it('calls logger.error with the ERRORS.GENERIC_ERROR', () => {
         expect(logger.error).to.have.been.calledOnce
         expect(logger.error.args[0][0]).to.equal(ERRORS.GENERIC_ERROR())
-        expect(logger.error.args[0][1]).to.deep.equal(error)
+        expect(logger.error.args[0][1]).to.deep.equal(error.message)
       })
 
       it('calls res.status with the status', () => {
@@ -109,7 +109,7 @@ describe('src/utils/genericErrors', () => {
         expect(logger.error.args[0][0]).to.equal(
           ERRORS.GENERIC_ERROR('test', parent.name)
         )
-        expect(logger.error.args[0][1]).to.deep.equal(genericError)
+        expect(logger.error.args[0][1]).to.deep.equal(genericError.message)
       })
 
       it('calls res.status with INTERNAL_SERVER_ERROR', () => {
