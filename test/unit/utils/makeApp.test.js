@@ -10,13 +10,13 @@ describe('src/utils/makeApp', () => {
 
   const fakeErrorHandler = 'errorHandler'
 
-  const fakeApiDefinition = {
+  const apiDetails = {
     apiDefinition: { test: 'just a test' },
     '@noCallThru': true
   }
   const mockApiValidator = stub().returns('api-validator')
   const mockConnect = spy()
-  const mockApiConnector = () => mockConnect
+  const connector = () => mockConnect
   const mockCors = stub().returns(fakeCors)
   const fakeNotFoundError = 'not found error'
   const mockUse = spy()
@@ -35,10 +35,10 @@ describe('src/utils/makeApp', () => {
     express: fakeExpress,
     cors: mockCors,
     'body-parser': fakeBodyParser,
-    'swagger-routes-express': mockApiConnector,
+    'swagger-routes-express': { connector },
     'swagger-ui-express': mockUiExpress,
     'src/utils/notFoundError': fakeNotFoundError,
-    'src/utils/api/apiDefinition': fakeApiDefinition,
+    'src/utils/api/apiDetails': apiDetails,
     'src/utils/api/apiValidator': mockApiValidator,
     'src/utils/genericErrors': fakeErrorHandler
   })
@@ -57,7 +57,7 @@ describe('src/utils/makeApp', () => {
 
   it('uses docs', () => {
     expect(mockUiExpress.setup).to.have.been.calledOnceWith(
-      fakeApiDefinition.apiDefinition
+      apiDetails.apiDefinition
     )
     expect(mockUse).to.have.been.calledWith(
       '/docs',

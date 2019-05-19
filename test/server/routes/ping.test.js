@@ -5,7 +5,7 @@ const {
   apiSummary: {
     info: { name, version, description }
   }
-} = require('src/utils/api/apiDefinition')
+} = require('src/utils/api/apiDetails')
 
 describe('GET /ping', () => {
   let server
