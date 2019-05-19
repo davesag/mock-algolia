@@ -20,7 +20,7 @@ const mockApiDefinition = {
 describe('src/api/ping', () => {
   const ping = proxyquire('src/api/ping', {
     'src/utils/uptime': mockUptime,
-    'src/utils/api/apiDefinition': mockApiDefinition
+    'src/utils/api/apiDetails': mockApiDefinition
   })
 
   const req = mockRequest()

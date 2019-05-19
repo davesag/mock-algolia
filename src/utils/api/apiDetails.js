@@ -1,5 +1,5 @@
 const YAML = require('yamljs')
-const summarise = require('src/utils/api/summariseApi')
+const { summarise } = require('swagger-routes-express')
 
 const apiDefinition = YAML.load('api.yml')
 const apiSummary = summarise(apiDefinition)

@@ -2,23 +2,20 @@ const { expect } = require('chai')
 const { stub } = require('sinon')
 const proxyquire = require('proxyquire')
 
-describe('src/utils/api/apiDefinition', () => {
+describe('src/utils/api/apiDetails', () => {
   const fakeDoc = { test: 'api-document' }
   const mockYAML = { load: stub().returns(fakeDoc) }
   const fakeSummary = { ...fakeDoc, summary: true }
-  const mockSummarise = stub().returns(fakeSummary)
+  const summarise = stub().returns(fakeSummary)
 
   let apiDefinition
   let apiSummary
 
   before(() => {
-    ;({ apiDefinition, apiSummary } = proxyquire(
-      'src/utils/api/apiDefinition',
-      {
-        yamljs: mockYAML,
-        'src/utils/api/summariseApi': mockSummarise
-      }
-    ))
+    ;({ apiDefinition, apiSummary } = proxyquire('src/utils/api/apiDetails', {
+      yamljs: mockYAML,
+      'swagger-routes-express': { summarise }
+    }))
   })
 
   it('loads the api doc', () => {
@@ -26,7 +23,7 @@ describe('src/utils/api/apiDefinition', () => {
   })
 
   it('summarises the api doc', () => {
-    expect(mockSummarise).to.have.been.calledWith(fakeDoc)
+    expect(summarise).to.have.been.calledWith(fakeDoc)
   })
 
   it('populated the apiDefinition', () => {

@@ -3,7 +3,7 @@ const {
   apiSummary: {
     info: { name, version, description }
   }
-} = require('src/utils/api/apiDefinition')
+} = require('src/utils/api/apiDetails')
 
 const ping = (req, res) => {
   res.json({
