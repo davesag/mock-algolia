@@ -13,7 +13,7 @@ A mock server that mimics the Algolia Search and Indexing APIs
 
 ### Current Status
 
-This is very much version 0.0.1 and a hack, not a fully fledged system.
+This is very much version 0.0.x and a hack, not a fully fledged system.
 
 - Very minimal support for adding, updating, and removing data from indices.
 - No search queries supported yet (coming when I need them/get around to them)
@@ -50,14 +50,6 @@ await index.addObjects(arrayOfObjects)
 
 Then all the client requests will go to the mock server (assuming it's running on port 3000)
 
-## Branches
-
-<!-- prettier-ignore -->
-| Branch    | Tests | Code Coverage | Comments                  |
-| --------- | ----- | ------------- | ------------------------- |
-| `develop` | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/develop) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | Work in progress          |
-| `master`  | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/master) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | Latest Production Release |
-
 ## Configuration
 
 Set the following environment variables
@@ -68,9 +60,17 @@ Set the following environment variables
 
 ## Development
 
+### Branches
+
+<!-- prettier-ignore -->
+| Branch    | Tests | Code Coverage | Comments                  |
+| --------- | ----- | ------------- | ------------------------- |
+| `develop` | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/develop) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | Work in progress          |
+| `master`  | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/master) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | Latest Production Release |
+
 ### Prerequisites
 
-- [NodeJS](htps://nodejs.org), version 10.15.3 (LTS) or better. (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
+- [NodeJS](htps://nodejs.org), version 10.16.1 (LTS) or better. (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
 - [Docker](https://www.docker.com) if you want to use the Swagger Editor. (Use [Docker for Mac](https://docs.docker.com/docker-for-mac/), not the `homebrew` version)
 
 ### To build and run locally
