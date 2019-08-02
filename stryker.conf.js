@@ -5,7 +5,6 @@ module.exports = function(config) {
       '!src/index.js',
       '!src/api/v1/**/*.js',
       '!src/errors.js',
-      '!src/utils/api/apiValidator.js',
       '!src/utils/config.js',
       '!src/utils/logger.js'
     ],

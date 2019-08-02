@@ -14,7 +14,6 @@ describe('src/utils/makeApp', () => {
     apiDefinition: { test: 'just a test' },
     '@noCallThru': true
   }
-  const mockApiValidator = stub().returns('api-validator')
   const mockConnect = spy()
   const connector = () => mockConnect
   const mockCors = stub().returns(fakeCors)
@@ -39,7 +38,6 @@ describe('src/utils/makeApp', () => {
     'swagger-ui-express': mockUiExpress,
     'src/utils/notFoundError': fakeNotFoundError,
     'src/utils/api/apiDetails': apiDetails,
-    'src/utils/api/apiValidator': mockApiValidator,
     'src/utils/genericErrors': fakeErrorHandler
   })
 
@@ -73,14 +71,6 @@ describe('src/utils/makeApp', () => {
 
   it('sets trust proxy to true', () => {
     expect(mockSet).to.have.been.calledWith('trust proxy', true)
-  })
-
-  it('creates the api validator', () => {
-    expect(mockApiValidator).to.have.been.called
-  })
-
-  it('uses the api validator', () => {
-    expect(mockUse).to.have.been.calledWith('api-validator')
   })
 
   it('invokes connect with app', () => {

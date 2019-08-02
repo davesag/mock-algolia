@@ -5,7 +5,6 @@ const swaggerUi = require('swagger-ui-express')
 const { connector } = require('swagger-routes-express')
 
 const api = require('src/api')
-const apiValidator = require('src/utils/api/apiValidator')
 const { apiDefinition } = require('src/utils/api/apiDetails')
 
 const genericErrors = require('src/utils/genericErrors')
@@ -21,7 +20,6 @@ const makeApp = async () => {
 
   app.set('trust proxy', true) // needed to get the requesting ip
   // add any other middlewares here
-  app.use(apiValidator(apiDefinition))
   connect(app) // apply the routes
 
   app.all('/1/*', api.v1_genericUnhandled)
