@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:latest
 MAINTAINER davesag@gmail.com
 
 WORKDIR /algolia

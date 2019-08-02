@@ -47,9 +47,10 @@ jobs:
           name: Server Tests
           command: npm run test:server
 
-      - run:
-          name: Mutation Tests
-          command: npm run test:mutants
+      # Mutation tests are too unreliable to run on CI
+      # - run:
+      #     name: Mutation Tests
+      #     command: npm run test:mutants
 
       - run:
           name: Push any lockfile changes
