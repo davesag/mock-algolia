@@ -1,10 +1,10 @@
 {
   "name": "@davesag/mock-algolia",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A mock server for Algolia Search and Indexing",
   "main": "index.js",
   "engines": {
-    "node": ">= 10.15.3",
+    "node": ">= 10.16.1",
     "npm": ">= 6.5.0"
   },
   "scripts": {
