@@ -1,0 +1,463 @@
+openapi: 3.0.1
+info:
+  title: Algolia Mock API
+  description: A mock server for Algolia
+  contact:
+    email: 'davesag@gmail.com'
+  license:
+    name: 'MIT'
+    url: https://opensource.org/licenses/MIT
+  version: 1.0.0
+servers:
+- url: /1
+tags:
+- name: root
+  description: Root level API routes
+- name: indices
+  description: Routes that manipulate indices
+paths:
+  /:
+    get:
+      tags:
+      - root
+      servers:
+      - url: /
+      summary: Display API version information
+      operationId: versions
+      responses:
+        200:
+          description: Information about the available API Versions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+  /ping:
+    get:
+      tags:
+      - root
+      servers:
+      - url: /
+      summary: Checks that the server is alive
+      operationId: ping
+      responses:
+        200:
+          description: 'Information about the server'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PingResponse'
+  /indexes/{name}:
+    post:
+      tags:
+      - indices
+      summary: Add a record to an index
+      operationId: v1_indices_addObject
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlgoliaData'
+      responses:
+        200:
+          description: 'Response to an Add an Object to an Index Request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlgoliaResponse'
+  /indexes/{name}/batch:
+    post:
+      tags:
+      - indices
+      summary: Perform an action on a collection of objects given a named index
+      operationId: v1_indices_bulkActions
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkRequestsBody'
+      responses:
+        200:
+          description: 'Responds with the objectIds that were acted upon'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkOperationResponse'
+  /indexes/{name}/settings:
+    put:
+      tags:
+        - indices
+      summary: Update the settings for the named index.
+      operationId: v1_indices_updateSettings
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+        - name: forwardToReplicas
+          in: query
+          description: Should this request be forwared on to replicas?
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlgoliaSettings'
+      responses:
+        200:
+          description: 'Gives the objectID that was updated'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlgoliaResponse'
+  /indexes/{name}/{objectID}:
+    put:
+      tags:
+        - indices
+      summary: Replace the object with the supplied objectID for the index with the given name with the data in the request body
+      operationId: v1_indices_replaceObject
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+        - name: objectID
+          in: path
+          description: The object's objectID
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlgoliaData'
+      responses:
+        200:
+          description: 'Gives the objectID that was updated'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlgoliaResponse'
+    delete:
+      tags:
+        - indices
+      summary: Delete the object with the supplied objectID for the index with the given name
+      operationId: v1_indices_deleteObject
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+        - name: objectID
+          in: path
+          description: The object's objectID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'Gives the objectId that was deleted'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlgoliaResponse'
+  /indexes/{name}/task/{taskID}:
+    get:
+      tags:
+        - indices
+      summary: Wait for the task with the given ID to finish.
+      operationId: v1_indices_waitTask
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+        - name: taskID
+          in: path
+          description: The ID of the task to wait for
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'Responds with either status: published or notPublished'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaitResponse'
+  /indexes/{name}/{objectID}/partial:
+    post:
+      tags:
+        - indices
+      summary: Update the object with the supplied objectID for the index with the given name using the data in the request body
+      operationId: v1_indices_updateObject
+      parameters:
+        - name: name
+          in: path
+          description: The index name
+          required: true
+          schema:
+            type: string
+        - name: objectID
+          in: path
+          description: The object's objectID
+          required: true
+          schema:
+            type: string
+        - name: createIfNotExists
+          in: query
+          description: 'Defaults to true'
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlgoliaData'
+      responses:
+        200:
+          description: 'The objectID of the updated or created object'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlgoliaResponse'
+components:
+  schemas:
+    PingResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        uptime:
+          type: number
+    APIVersion:
+      type: object
+      properties:
+        version:
+          type: integer
+          description: The API's version number
+        path:
+          type: string
+          description: The relative path to the API
+    VersionResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/APIVersion'
+    AlgoliaData:
+      type: object
+      properties:
+        objectID:
+          type: string
+      additionalProperties: true
+    AlgoliaSettings:
+      type: object
+      properties:
+        minWordSizefor1Typo:
+          type: number
+        minWordSizefor2Typos:
+          type: number
+        hitsPerPage:
+          type: number
+        attributesToRetrieve:
+          type: array
+          items:
+            type: string
+        attributesToHighlight:
+          type: array
+          items:
+            type: string
+        attributesToSnippet:
+          type: array
+          items:
+            type: string
+        attributesToIndex:
+          type: array
+          items:
+            type: string
+        attributesForFaceting:
+          type: array
+          items:
+            type: string
+        attributeForDistinct:
+          type: array
+          items:
+            type: string
+        ranking:
+          type: array
+          items:
+            type: string
+            enum:
+              - typo
+              - geo
+              - proximity
+              - attribute
+              - exact
+              - custom
+        customRanking:
+          type: array
+          items:
+            type: string
+        searchableAttributes:
+          type: array
+          items:
+            type: string
+        queryType:
+          type: string
+          enum:
+            - prefixAll
+            - prefixLast
+            - prefixNone
+        highlightPreTag:
+          type: string
+        highlightPostTag:
+          type: string
+        keepDiacriticsOnCharacters:
+          type: string
+        queryLanguages:
+          # see https://www.algolia.com/doc/api-reference/api-parameters/queryLanguages/
+          type: array
+          items:
+            type: string
+            enum:
+              - af
+              - ar
+              - az
+              - bg
+              - bn
+              - ca
+              - cs
+              - cy
+              - da
+              - de
+              - el
+              - en
+              - eo
+              - es
+              - et
+              - eu
+              - fa
+              - fi
+              - fo
+              - fr
+              - ga
+              - gl
+              - he
+              - hi
+              - hu
+              - hy
+              - id
+              - is
+              - it
+              - ja
+              - ka
+              - kk
+              - ko
+              - ku
+              - ky
+              - lt
+              - lv
+              - mi
+              - mn
+              - mr
+              - ms
+              - mt
+              - nb
+              - nl
+              - no
+              - ns
+              - pl
+              - ps
+              - pt
+              - 'bt-br'
+              - qu
+              - ro
+              - ru
+              - sk
+              - sq
+              - sv
+              - sw
+              - ta
+              - te
+              - th
+              - tl
+              - tn
+              - tr
+              - tt
+              - uk
+              - ur
+              - uz
+              - zh
+      additionalProperties: true
+    AlgoliaRequest:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+            - addObject
+            - updateObject
+            - partialUpdateObject
+            - deleteObject
+        objectID:
+          type: string
+        body:
+          $ref: '#/components/schemas/AlgoliaData'
+    AlgoliaResponse:
+      type: object
+      properties:
+        objectID:
+          type: string
+        taskID:
+          type: number
+    BulkRequestsBody:
+      type:  object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlgoliaRequest'
+    BulkOperationResponse:
+      type: object
+      properties:
+        objectIDs:
+          type: array
+          items:
+            type: string
+        taskID:
+          type: number
+    WaitResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - published
+            - notPublished
