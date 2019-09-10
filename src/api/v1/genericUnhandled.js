@@ -1,4 +1,4 @@
-const logger = require('../..utils/logger')
+const logger = require('../../utils/logger')
 const { makeTaskID } = require('../../utils/ids')
 
 const genericUnhandled = (req, res) => {

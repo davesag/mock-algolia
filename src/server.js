@@ -3,7 +3,7 @@ const logger = require('./utils/logger')
 const { PORT } = require('./utils/config')
 
 const start = async (options = {}) => {
-  const { port = PORT } = options;
+  const { port = PORT } = options
   try {
     const app = await makeApp()
     const server = await app.listen(port)
