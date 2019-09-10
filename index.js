@@ -12,4 +12,10 @@ process.on('unhandledRejection', (reason, p) => {
   }
 })
 
-Server.start()
+if (process.env.AUTO_START) {
+  Server.start()
+}
+
+module.exports = {
+  Server
+}
