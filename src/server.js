@@ -2,11 +2,12 @@ const makeApp = require('src/utils/makeApp')
 const logger = require('src/utils/logger')
 const { PORT } = require('src/utils/config')
 
-const start = async () => {
+const start = async (options = {}) => {
+  const { port = PORT } = options;
   try {
     const app = await makeApp()
-    const server = await app.listen(PORT)
-    logger.debug('Server started. Listening on port', PORT)
+    const server = await app.listen(port)
+    logger.debug('Server started. Listening on port', port)
 
     return { server }
   } catch (err) {
