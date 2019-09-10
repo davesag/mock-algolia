@@ -1,9 +1,9 @@
-const uptime = require('src/utils/uptime')
+const uptime = require('../utils/uptime')
 const {
   apiSummary: {
     info: { name, version, description }
   }
-} = require('src/utils/api/apiDetails')
+} = require('../utils/api/apiDetails')
 
 const ping = (req, res) => {
   res.json({

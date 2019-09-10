@@ -1,5 +1,5 @@
-const logger = require('src/utils/logger')
-const { makeTaskID } = require('src/utils/ids')
+const logger = require('../..utils/logger')
+const { makeTaskID } = require('../../utils/ids')
 
 const genericUnhandled = (req, res) => {
   logger.debug('unhandled route', req.method, req.originalUrl)

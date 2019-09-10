@@ -1,5 +1,5 @@
-const logger = require('src/utils/logger')
-const { makeTaskID, makeObjectID } = require('src/utils/ids')
+const logger = require('../../../utils/logger')
+const { makeTaskID, makeObjectID } = require('../../../utils/ids')
 
 /*
 

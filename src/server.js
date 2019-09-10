@@ -1,6 +1,6 @@
-const makeApp = require('src/utils/makeApp')
-const logger = require('src/utils/logger')
-const { PORT } = require('src/utils/config')
+const makeApp = require('./utils/makeApp')
+const logger = require('./utils/logger')
+const { PORT } = require('./utils/config')
 
 const start = async (options = {}) => {
   const { port = PORT } = options;

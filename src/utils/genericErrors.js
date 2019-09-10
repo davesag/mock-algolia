@@ -1,7 +1,7 @@
 const { INTERNAL_SERVER_ERROR } = require('http-status-codes')
 
-const logger = require('src/utils/logger')
-const ERRORS = require('src/errors')
+const logger = require('./logger')
+const ERRORS = require('../errors')
 
 const genericErrors = (err, req, res, next) => {
   if (res.headersSent) return next(err)

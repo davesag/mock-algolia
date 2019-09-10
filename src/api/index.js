@@ -1,5 +1,5 @@
 const traverse = require('traverse-folders')
-const pathToRoute = require('src/utils/api/pathToRoute')
+const pathToRoute = require('../utils/api/pathToRoute')
 
 const apis = {}
 

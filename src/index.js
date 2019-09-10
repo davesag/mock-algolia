@@ -1,6 +1,6 @@
 /* eslint-disable promise/always-return */
-const Server = require('src/server')
-const logger = require('src/utils/logger')
+const Server = require('./server')
+const logger = require('./utils/logger')
 
 Server.start()
   .then(() => {

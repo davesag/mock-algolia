@@ -5,10 +5,10 @@ const swaggerUi = require('swagger-ui-express')
 const { connector } = require('swagger-routes-express')
 
 const api = require('src/api')
-const { apiDefinition } = require('src/utils/api/apiDetails')
+const { apiDefinition } = require('./api/apiDetails')
 
-const genericErrors = require('src/utils/genericErrors')
-const notFoundError = require('src/utils/notFoundError')
+const genericErrors = require('./genericErrors')
+const notFoundError = require('./notFoundError')
 
 const makeApp = async () => {
   const connect = connector(api, apiDefinition)
