@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const swaggerUi = require('swagger-ui-express')
 const { connector } = require('swagger-routes-express')
 
-const api = require('src/api')
+const api = require('../api')
 const { apiDefinition } = require('./api/apiDetails')
 
 const genericErrors = require('./genericErrors')
