@@ -13,7 +13,7 @@ A mock server that mimics the Algolia Search and Indexing APIs
 
 ### Current Status
 
-This is very much version 0.0.x and a hack, not a fully fledged system.
+This is very much version `0.0.x` and a hack, not a fully fledged system.
 
 - Very minimal support for adding, updating, and removing data from indices.
 - No search queries supported yet (coming when I need them/get around to them)
@@ -48,7 +48,7 @@ const index = client.initIndex('some-index-name')
 await index.addObjects(arrayOfObjects)
 ```
 
-Then all the client requests will go to the mock server (assuming it's running on port 3000)
+Then all the client requests will go to the mock server (assuming it's running on port `3000`)
 
 ## Configuration
 
@@ -56,7 +56,7 @@ Set the following environment variables
 
 | Variable | Default | Notes                          |
 | -------- | ------- | ------------------------------ |
-| `PORT`   | `3001`  | The port the server listens on |
+| `PORT`   | `3000`  | The port the server listens on |
 
 ## Development
 
@@ -70,7 +70,7 @@ Set the following environment variables
 
 ### Prerequisites
 
-- [NodeJS](htps://nodejs.org), version 10.16.1 (LTS) or better. (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
+- [NodeJS](htps://nodejs.org), version 12.13.0 (LTS) or better. (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
 - [Docker](https://www.docker.com) if you want to use the Swagger Editor. (Use [Docker for Mac](https://docs.docker.com/docker-for-mac/), not the `homebrew` version)
 
 ### To build and run locally
