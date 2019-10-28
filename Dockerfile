@@ -1,16 +1,18 @@
-FROM node:latest
+FROM node:12-slim
 MAINTAINER davesag@gmail.com
-
-WORKDIR /algolia
-
-COPY package.json package.json
-COPY package-lock.json package-lock.json
-
-RUN HUSKY_SKIP_INSTALL=true npm install
-
-COPY src src
-COPY index.js index.js
-COPY api.yml api.yml
-
 EXPOSE 3000
-ENTRYPOINT ["npm" , "start" ]
+
+RUN mkdir /app && chown -R node:node /app
+WORKDIR /app
+
+COPY --chown=node:node package.json package-lock.json src index.js ./
+
+ENV NODE_PATH .
+ENV NODE_ENV production
+ENV HUSKY_SKIP_INSTALL true
+
+USER node
+
+RUN npm install --production
+
+ENTRYPOINT ["node", "index.js"]
