@@ -2,10 +2,22 @@
   "name": "@davesag/mock-algolia",
   "version": "0.0.4",
   "description": "A mock server for Algolia Search and Indexing",
+  "author": "Dave Sag <davesag@gmail.com>",
+  "type": "commonjs",
+  "license": "MIT",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/davesag"
+  },
+  "private": true,
   "main": "index.js",
   "engines": {
     "node": ">= 12.13.0",
     "npm": ">= 6.5.0"
+  },
+  "directories": {
+    "lib": "src",
+    "test": "test"
   },
   "scripts": {
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
@@ -24,52 +36,24 @@
     "mock",
     "algolia"
   ],
-  "author": "Dave Sag <davesag@gmail.com>",
-  "license": "MIT",
   "repository": "https://github.com/davesag/mock-algolia.git",
   "bugs": {
     "url": "https://github.com/davesag/mock-algolia/issues"
   },
   "homepage": "https://github.com/davesag/mock-algolia#README",
-  "lint-staged": {
-    "**/*.{js,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "nyc": {
-    "check-coverage": true,
-    "per-file": true,
-    "lines": 100,
-    "statements": 100,
-    "functions": 100,
-    "branches": 100,
-    "include": [
-      "src/**/*.js"
-    ],
-    "exclude": [
-      "src/index.js",
-      "src/api/v1/**/*.js",
-      "src/utils/logger.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "all": true,
-    "cache": true
-  },
-  "greenkeeper": {
-    "ignore": []
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^1.4.0",
+    "node-http-error": "^2.0.0",
+    "route-async": "^1.0.5",
+    "swagger-routes-express": "^3.1.1",
+    "swagger-ui-express": "^4.1.2",
+    "traverse-folders": "^1.1.0",
+    "uuid": "^3.3.3",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "@stryker-mutator/core": "^2.3.0",
@@ -99,18 +83,42 @@
     "sinon-chai": "^3.3.0",
     "supertest": "^4.0.2"
   },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "http-status-codes": "^1.4.0",
-    "node-http-error": "^2.0.0",
-    "route-async": "^1.0.5",
-    "swagger-routes-express": "^3.1.1",
-    "swagger-ui-express": "^4.1.2",
-    "traverse-folders": "^1.1.0",
-    "uuid": "^3.3.3",
-    "yamljs": "^0.3.0"
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "proseWrap": "never"
+  },
+  "lint-staged": {
+    "**/*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/index.js",
+      "src/api/v1/**/*.js",
+      "src/utils/logger.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "all": true,
+    "cache": true
   }
 }
