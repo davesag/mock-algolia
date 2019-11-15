@@ -2,6 +2,8 @@ const { expect } = require('chai')
 const { stub, spy } = require('sinon')
 const proxyquire = require('proxyquire').noCallThru()
 
+const api = require('src/api')
+
 describe('src/utils/makeApp', () => {
   const fakeCors = 'cors'
   const fakeBodyParser = {
@@ -75,6 +77,10 @@ describe('src/utils/makeApp', () => {
 
   it('invokes connect with app', () => {
     expect(mockConnect).to.have.been.calledWith(app)
+  })
+
+  it('calls app.all to handle unhandled routes', () => {
+    expect(app.all).to.have.been.calledWith('/1/*', api.v1_genericUnhandled)
   })
 
   it('uses the notFoundError handler', () => {
