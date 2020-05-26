@@ -52,7 +52,7 @@
     "swagger-routes-express": "^3.1.2",
     "swagger-ui-express": "^4.1.4",
     "traverse-folders": "^1.1.2",
-    "uuid": "^7.0.3",
+    "uuid": "^8.1.0",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
