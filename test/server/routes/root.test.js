@@ -16,7 +16,5 @@ describe('GET /', () => {
   })
 
   it('returns the expected values with status code 200', async () =>
-    request(server)
-      .get('/')
-      .expect(200, expected))
+    request(server).get('/').expect(200, expected))
 })
