@@ -52,7 +52,7 @@
     "swagger-routes-express": "^3.1.3",
     "swagger-ui-express": "^4.1.4",
     "traverse-folders": "^1.1.2",
-    "uuid": "^8.1.0",
+    "uuid": "^8.2.0",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
@@ -63,7 +63,7 @@
     "chai": "^4.2.0",
     "chai-almost": "^1.0.1",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^7.3.0",
+    "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.2",
