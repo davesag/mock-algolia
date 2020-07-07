@@ -1,6 +1,6 @@
 # mock-algolia
 
-A mock server that mimics the Algolia Search and Indexing APIs
+A mock server that mimics the [Algolia](https://www.algolia.com) Search and Indexing APIs.
 
 ## Docker
 
@@ -63,14 +63,14 @@ Set the following environment variables
 ### Branches
 
 <!-- prettier-ignore -->
-| Branch    | Tests | Code Coverage | Comments                  |
-| --------- | ----- | ------------- | ------------------------- |
-| `develop` | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/develop) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | Work in progress          |
-| `master`  | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/master) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | Latest Production Release |
+| Branch    | Tests | Code Coverage | Audit | Comments |
+| --------- | ----- | ------------- | ----- | -------- |
+| `develop` | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/develop) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | [![Vulnerabilities](https://snyk.io/test/github/davesag/mock-algolia/develop/badge.svg)](https://snyk.io/test/github/davesag/mock-algolia/develop) | Work in progress |
+| `master`  | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/master) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | [![Vulnerabilities](https://snyk.io/test/github/davesag/mock-algolia/master/badge.svg)](https://snyk.io/test/github/davesag/mock-algolia/master) | Latest Production Release |
 
 ### Prerequisites
 
-- [NodeJS](htps://nodejs.org), version 12.13.0 (LTS) or better. (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
+- [NodeJS](htps://nodejs.org), version 12.18.2 (LTS) or better. (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
 - [Docker](https://www.docker.com) if you want to use the Swagger Editor. (Use [Docker for Mac](https://docs.docker.com/docker-for-mac/), not the `homebrew` version)
 
 ### To build and run locally
