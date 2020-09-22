@@ -41,9 +41,7 @@ describe('src/server', () => {
     })
 
     it('logged the startup', () => {
-      expect(logger.debug).to.have.been.calledWith(
-        'Server started. Listening on port'
-      )
+      expect(logger.debug).to.have.been.calledWith('Server started. Listening on port')
     })
 
     it('returns the server', () => {
@@ -74,10 +72,7 @@ describe('src/server', () => {
     })
 
     it('logged the error', () => {
-      expect(logger.error).to.have.been.calledWith(
-        'Could not start the server',
-        error
-      )
+      expect(logger.error).to.have.been.calledWith('Could not start the server', error)
     })
 
     it('threw the error', () => {
