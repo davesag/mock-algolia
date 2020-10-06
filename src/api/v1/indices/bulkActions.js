@@ -14,9 +14,7 @@ const bulkActions = (req, res) => {
   logger.debug('params', req.params)
   logger.debug('body', JSON.stringify(req.body, null, 2))
   res.json({
-    objectIDs: req.body.requests.map(
-      ({ body: { objectID } }) => objectID || makeObjectID()
-    ),
+    objectIDs: req.body.requests.map(({ body: { objectID } }) => objectID || makeObjectID()),
     taskId: makeTaskID()
   })
 }

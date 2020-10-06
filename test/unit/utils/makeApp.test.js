@@ -56,14 +56,8 @@ describe('src/utils/makeApp', () => {
   //  app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiDefinition))
 
   it('uses docs', () => {
-    expect(mockUiExpress.setup).to.have.been.calledOnceWith(
-      apiDetails.apiDefinition
-    )
-    expect(mockUse).to.have.been.calledWith(
-      '/docs',
-      mockUiExpress.serve,
-      fakeUI
-    )
+    expect(mockUiExpress.setup).to.have.been.calledOnceWith(apiDetails.apiDefinition)
+    expect(mockUse).to.have.been.calledWith('/docs', mockUiExpress.serve, fakeUI)
   })
 
   it('uses bodyParser.json', () => {

@@ -106,9 +106,7 @@ describe('src/utils/genericErrors', () => {
 
       it('calls logger.error with the ERRORS.GENERIC_ERROR', () => {
         expect(logger.error).to.have.been.calledOnce
-        expect(logger.error.args[0][0]).to.equal(
-          ERRORS.GENERIC_ERROR('test', parent.name)
-        )
+        expect(logger.error.args[0][0]).to.equal(ERRORS.GENERIC_ERROR('test', parent.name))
         expect(logger.error.args[0][1]).to.deep.equal(genericError.message)
       })
 

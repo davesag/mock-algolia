@@ -6,7 +6,7 @@ const fakePaths = {
       description: 'Returns information about the server',
       operationId: 'ping',
       responses: {
-        '200': {
+        200: {
           description: 'success',
           content: {
             'application/json': {
@@ -34,7 +34,7 @@ const fakePaths = {
         }
       ],
       responses: {
-        '200': {
+        200: {
           description: 'successful operation',
           content: {
             'application/json': {
@@ -44,8 +44,8 @@ const fakePaths = {
             }
           }
         },
-        '400': { description: 'Invalid ID supplied' },
-        '404': { description: 'Source not found' }
+        400: { description: 'Invalid ID supplied' },
+        404: { description: 'Source not found' }
       }
     }
   }
