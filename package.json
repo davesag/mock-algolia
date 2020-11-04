@@ -12,8 +12,8 @@
   "private": true,
   "main": "index.js",
   "engines": {
-    "node": ">= 12.18.2",
-    "npm": ">= 6.5.0"
+    "node": ">= 12.18.2 < 15.x",
+    "npm": ">= 6.5.0 < 7.x"
   },
   "directories": {
     "lib": "src",
