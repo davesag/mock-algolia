@@ -1,4 +1,4 @@
-FROM node:14-slim
+FROM node:15-slim
 LABEL maintainer="davesag@gmail.com"
 EXPOSE 3000
 

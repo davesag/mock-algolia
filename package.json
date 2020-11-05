@@ -12,8 +12,8 @@
   "private": true,
   "main": "index.js",
   "engines": {
-    "node": ">= 12.18.2 < 15.x",
-    "npm": ">= 6.5.0 < 7.x"
+    "node": ">= 12.18.2",
+    "npm": "<7 >=7.0.8"
   },
   "directories": {
     "lib": "src",
@@ -30,7 +30,6 @@
     "test:unit": "NODE_ENV=test NODE_PATH=. mocha ./test/unit/ --require ./test/unitTestHelper.js --recursive",
     "test:unit:cov": "NODE_ENV=test NODE_PATH=. nyc mocha ./test/unit/ --require ./test/unitTestHelper.js --recursive",
     "test:server": "NODE_ENV=test NODE_PATH=. mocha ./test/server/ --require ./test/serverTestHelper.js --file ./test/serverTestInit.js --recursive ",
-    "test:mutants": "NODE_ENV=test NODE_PATH=. npx stryker run",
     "snyk-protect": "snyk protect"
   },
   "keywords": [
@@ -57,8 +56,6 @@
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "@stryker-mutator/core": "^4.0.0",
-    "@stryker-mutator/mocha-runner": "^4.0.0",
     "chai": "^4.2.0",
     "chai-almost": "^1.0.1",
     "chai-as-promised": "^7.1.1",
