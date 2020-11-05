@@ -81,7 +81,7 @@
     "sinon": "^9.2.0",
     "sinon-chai": "^3.5.0",
     "snyk": "^1.419.1",
-    "supertest": "^6.0.0"
+    "supertest": "^6.0.1"
   },
   "prettier": {
     "semi": false,
