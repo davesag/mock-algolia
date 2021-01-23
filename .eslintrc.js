@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['standard', 'prettier', 'prettier/standard', 'plugin:promise/recommended'],
-  plugins: ['standard', 'prettier', 'promise'],
+  plugins: ['prettier', 'promise'],
   parserOptions: {
     sourceType: 'module'
   },
