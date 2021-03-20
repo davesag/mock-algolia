@@ -8,6 +8,8 @@ WORKDIR /app
 COPY --chown=node:node package.json package-lock.json index.js ./
 COPY --chown=node:node src/ ./src/
 
+COPY --chown=node:node api.yml api.yml
+
 ENV NODE_PATH .
 ENV NODE_ENV production
 ENV HUSKY_SKIP_INSTALL true
