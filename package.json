@@ -1,6 +1,6 @@
 {
   "name": "@davesag/mock-algolia",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A mock server for Algolia Search and Indexing",
   "author": "Dave Sag <davesag@gmail.com>",
   "type": "commonjs",
