@@ -70,7 +70,7 @@ Set the following environment variables
 
 ### Prerequisites
 
-- [NodeJS](htps://nodejs.org), version 12.18.2 (LTS) or better. (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
+- [NodeJS](htps://nodejs.org). I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.
 - [Docker](https://www.docker.com) if you want to use the Swagger Editor. (Use [Docker for Mac](https://docs.docker.com/docker-for-mac/), not the `homebrew` version)
 
 ### To build and run locally
@@ -95,7 +95,6 @@ You can put environment variables in a `.env` file.
 - `npm run lint` will lint it
 - `npm run prettier` will prettify it
 - `npm run test:unit:cov` will run the unit tests with code coverage
-- `npm run test:mutants` will run the unit tests with mutation testing
 
 ## Contributing
 

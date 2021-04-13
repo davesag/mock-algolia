@@ -1,11 +1,11 @@
-FROM node:12-slim
+FROM node:15-slim
 LABEL maintainer="davesag@gmail.com"
 EXPOSE 3000
 
 RUN mkdir /app && chown -R node:node /app
 WORKDIR /app
 
-COPY --chown=node:node package.json package-lock.json index.js ./
+COPY --chown=node:node api.yml package.json package-lock.json index.js ./
 COPY --chown=node:node src/ ./src/
 
 ENV NODE_PATH .
