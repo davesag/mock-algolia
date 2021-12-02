@@ -52,7 +52,7 @@
     "node-http-error": "^2.0.0",
     "route-async": "^1.0.7",
     "swagger-routes-express": "^3.3.1",
-    "swagger-ui-express": "^4.1.4",
+    "swagger-ui-express": "^4.2.0",
     "traverse-folders": "^1.1.2",
     "uuid": "^8.3.1",
     "yamljs": "^0.3.0"
