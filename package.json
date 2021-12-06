@@ -61,7 +61,7 @@
     "chai": "^4.2.0",
     "chai-almost": "^1.0.1",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^8.2.0",
+    "eslint": "^8.4.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.2",
