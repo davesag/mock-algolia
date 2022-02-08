@@ -46,6 +46,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PingResponse'
+  /requests:
+    get:
+      tags:
+      - root
+      servers:
+      - url: /
+      summary: Returns the requests made to the server
+      operationId: requests
+      responses:
+        200:
+          description: 'Returns the requests made to the server'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestsResponse'
+    delete:
+      tags:
+      - root
+      servers:
+      - url: /
+      summary: Clear requests made to the server
+      operationId: cleanRequests
+      responses:
+        200:
+          description: 'Clear the requests made to the server'
+
   /indexes/{name}:
     post:
       tags:
@@ -247,6 +273,37 @@ paths:
                 $ref: '#/components/schemas/AlgoliaResponse'
 components:
   schemas:
+    RequestsResponse:
+      type: object
+      properties:
+        addObject:
+          type: array
+          items: 
+            type: object
+        bulkActions:
+          type: array
+          items: 
+            type: object
+        deleteObject:
+          type: array
+          items: 
+            type: object
+        replaceObject:
+          type: array
+          items: 
+            type: object
+        updateObject:
+          type: array
+          items: 
+            type: object
+        updateSettings:
+          type: array
+          items: 
+            type: object
+        waitTask:
+          type: array
+          items: 
+            type: object
     PingResponse:
       type: object
       properties:
