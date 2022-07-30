@@ -19,7 +19,7 @@ const makeApp = async () => {
   app.use(bodyParser.json())
 
   app.set('trust proxy', true) // needed to get the requesting ip
-  // add any other middlewares here
+  // add any other middleware here
   connect(app) // apply the routes
 
   app.all('/1/*', api.v1_genericUnhandled)

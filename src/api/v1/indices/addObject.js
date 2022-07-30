@@ -1,10 +1,12 @@
 const logger = require('src/utils/logger')
 const { makeTaskID, makeObjectID } = require('src/utils/ids')
+const { addToStorage } = require('src/utils/storage')
 
 /*
 
 */
 const addObject = (req, res) => {
+  addToStorage('addObject', req.body)
   logger.debug('addObject')
   logger.debug('url', req.originalUrl)
   logger.debug('params', req.params)
