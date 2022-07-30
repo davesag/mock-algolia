@@ -1,7 +1,13 @@
 const { expect } = require('chai')
-const { addToStorage, cleanStorage, getStorage } = require('src/utils/storage')
+const proxyquire = require('proxyquire')
+const mockLogger = require('test/utils/mockLogger')
 
 describe('src/utils/storage', () => {
+  const logger = mockLogger()
+  const { addToStorage, cleanStorage, getStorage } = proxyquire('src/utils/storage', {
+    'src/utils/logger': logger
+  })
+
   const initialStorage = {
     addObject: [],
     bulkActions: [],
@@ -19,42 +25,42 @@ describe('src/utils/storage', () => {
   })
 
   describe('#addToStorage', () => {
-    it('Stores the relevant keys', () => {
-      const actions = [
-        'addObject',
-        'bulkActions',
-        'deleteObject',
-        'replaceObject',
-        'updateObject',
-        'updateSettings',
-        'waitTask'
-      ]
+    const obj = {
+      objectID: 'obj',
+      additionalProp1: {
+        key: 'value'
+      }
+    }
 
-      actions.forEach(action => {
-        const object1 = {
-          objectID: 'object1',
-          additionalProp1: {
-            key: 'value'
-          }
-        }
-        addToStorage(action, object1)
-        expect(getStorage()).to.eql({
-          ...initialStorage,
-          [action]: [object1]
+    context('when given known keys', () => {
+      Object.keys(initialStorage).forEach(key => {
+        context('given key ' + key, () => {
+          before(() => {
+            addToStorage(key, obj)
+          })
+
+          after(cleanStorage)
+
+          it('stored the data', () => {
+            expect(getStorage()).to.eql({
+              ...initialStorage,
+              [key]: [obj]
+            })
+          })
         })
-        cleanStorage()
       })
     })
 
-    it("doesn't store unknown keys", () => {
-      const object1 = {
-        objectID: 'object1',
-        additionalProp1: {
-          key: 'value'
-        }
-      }
-      addToStorage('unknown', object1)
-      expect(getStorage()).to.eql(initialStorage)
+    context('given an unknown key', () => {
+      before(() => {
+        addToStorage('unknown', obj)
+      })
+
+      after(cleanStorage)
+
+      it('does not store it', () => {
+        expect(getStorage()).to.eql(initialStorage)
+      })
     })
   })
 })

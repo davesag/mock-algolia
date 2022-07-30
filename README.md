@@ -50,6 +50,14 @@ await index.addObjects(arrayOfObjects)
 
 Then all the client requests will go to the mock server (assuming it's running on port `3000`)
 
+## Checking what was sent
+
+You can get a quick overview of what has been sent to the mock server via [get `/requests'](http://localhost:3000/requests).
+
+## Resetting the mock server
+
+You can reset the request log by sending [`delete /requests`]
+
 ## Configuration
 
 Set the following environment variables
