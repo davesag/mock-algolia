@@ -66,7 +66,7 @@ Set the following environment variables
 | Branch    | Tests | Code Coverage | Audit | Comments |
 | --------- | ----- | ------------- | ----- | -------- |
 | `develop` | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/develop.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/develop) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/develop/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | [![Vulnerabilities](https://snyk.io/test/github/davesag/mock-algolia/develop/badge.svg)](https://snyk.io/test/github/davesag/mock-algolia/develop) | Work in progress |
-| `master`  | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/master.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/master) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/master/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | [![Vulnerabilities](https://snyk.io/test/github/davesag/mock-algolia/master/badge.svg)](https://snyk.io/test/github/davesag/mock-algolia/master) | Latest Production Release |
+| `main`  | [![CircleCI](https://circleci.com/gh/davesag/mock-algolia/tree/main.svg?style=svg)](https://circleci.com/gh/davesag/mock-algolia/tree/main) | [![codecov](https://codecov.io/gh/davesag/mock-algolia/branch/main/graph/badge.svg)](https://codecov.io/gh/davesag/mock-algolia) | [![Vulnerabilities](https://snyk.io/test/github/davesag/mock-algolia/main/badge.svg)](https://snyk.io/test/github/davesag/mock-algolia/main) | Latest Production Release |
 
 ### Prerequisites
 
