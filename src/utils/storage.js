@@ -1,4 +1,5 @@
 const logger = require('src/utils/logger')
+
 let storage = {
   addObject: [],
   bulkActions: [],
@@ -9,15 +10,30 @@ let storage = {
   waitTask: []
 }
 
+/**
+ * Add an object to storage against the supplied key
+
+ * @param {string} key One of `addObject`, `bulkActions`, `deleteObject`, `replaceObject`, `updateObject`, `updateSettings`, or `waitTask`
+ * @param {object} value Any value
+ */
 const addToStorage = (key, value) => {
-  if (key in storage) {
-    return storage[key].push(value)
+  if (!storage[key]) {
+    logger.info(`addToStorage invoked with unknown key: ${key}`)
+    return
   }
 
-  logger.info(`addToStorage invoked with unknown key: ${key}`)
+  storage[key].push(value)
 }
 
+/**
+ * Getter for the entire storage object
+ * @returns {object} The stored data
+ */
 const getStorage = () => storage
+
+/**
+ * Reset the storage object
+ */
 const cleanStorage = () => {
   storage = {
     addObject: [],
