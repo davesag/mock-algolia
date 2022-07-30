@@ -1,5 +1,6 @@
 const logger = require('src/utils/logger')
 const { makeTaskID, makeObjectID } = require('src/utils/ids')
+const { addToStorage } = require('src/utils/storage')
 
 /*
   handles
@@ -9,6 +10,7 @@ const { makeTaskID, makeObjectID } = require('src/utils/ids')
   - deleteObjects (action = deleteObject)
 */
 const bulkActions = (req, res) => {
+  addToStorage('bulkActions', req.body)
   logger.debug('bulkActions')
   logger.debug('url', req.originalUrl)
   logger.debug('params', req.params)
