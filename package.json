@@ -59,7 +59,7 @@
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "@snyk/protect": "^1.981.0",
+    "@snyk/protect": "^1.1024.0",
     "chai": "^4.3.6",
     "chai-almost": "^1.0.1",
     "chai-as-promised": "^7.1.1",
